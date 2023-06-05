@@ -1,19 +1,37 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>EasyAs</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+  <!DOCTYPE html>
+  <html>
+    <head>
+      <title>EasyAs</title>
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <%= csrf_meta_tags %>
+      <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_importmap_tags %>
-  </head>
+      <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+      <%= javascript_importmap_tags %>
+    </head>
 
-  <body>
-    <%= link_to "home", root_path %>
-    <%= link_to "about", about_path %>
-    <%= link_to "Contact Us", contact_path %>
+    <body>
+  <%= render partial: 'pages/navbar' %>
+</br>
+<div class="container text-center">
+  <% if notice.present? %>
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+      <h3><%= notice %></h3>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+  <% end %>
+  
+  <% if alert.present? %>
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+      <h3><%= alert %></h3>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+  <% end %>
+</div>
+>
+    </div>
+    <div class="container">
     <%= yield %>
+    </div>
   </body>
 </html>
